@@ -1,15 +1,16 @@
 VARIANT = 2
-RANGE_NAMBER = 1000..9999
-RANGE_LITTERS = ('a'..'z').to_a
+RANGE_NAMBERS = Array.new(4, (0..9).to_a )
+RANGE_LETTERS = Array.new(4, ('A'..'Z').to_a)
+
 
 def generate
-  "#{numbers}-#{letters}-#{numbers}"
+  %Q(#{numbers}-#{letters}-#{numbers})
 end
 
 def numbers
-  rand(RANGE_NAMBER)
+  RANGE_NAMBERS.map{ |elem| elem.sample }.join
 end
 
 def letters
-  RANGE_LITTERS.sample(4).join.upcase
+  RANGE_LETTERS.map{ |elem| elem.sample }.join
 end
